@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
@@ -11,6 +12,7 @@ import { TalkDetailComponent } from './components/talks/talk-detail/talk-detail.
 import { TalkItemComponent } from './components/talks/talk-item/talk-item.component';
 import { TalkListComponent } from './components/talks/talk-list/talk-list.component';
 import { MaterialConfigModule } from './core/modules/material-config.module';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { MaterialConfigModule } from './core/modules/material-config.module';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        FlexLayoutModule,
 
         AngularFireModule.initializeApp(environment.firebase),
 

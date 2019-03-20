@@ -1,27 +1,52 @@
-# FeedbackTool
+# Feedback Tool
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+## Montagem do ambiente
 
-## Development server
+O ambiente de desenvolvimento em Angular necessita de algumas ferramentas instaladas na máquina.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Git
+- Node (v10+)
 
-## Code scaffolding
+## Instalando Angular CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+A seguir, baixe o Angular CLI de forma global, para que possa ser executado de qualquer ponto da estrutura de pastas do sistema
 
-## Build
+```
+npm install -g @angular/cli
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Este comando irá baixar a versão mais atual da ferramenta.
 
-## Running unit tests
+## Clonando este repositório
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Em uma pasta do seu agrado, abrir o terminal e executar o seguinte comando:
 
-## Running end-to-end tests
+```
+git clone https://github.com/grandtrigger/feedback-tool.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Isto irá baixar o repositório na sua máquina, no caminho /<sua-pasta>/feedback-tool. Logo após, executar
 
-## Further help
+```
+cd feedback-tool
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+para acessar a pasta do repositório
+
+## Configurando o projeto clonado
+
+Após clonar e acessar a nova pasta criada, vamos permitir que o código que temos em mãos seja compilado para execução e testes.
+
+```
+npm install
+```
+
+Isto irá baixar todas as dependências necessárias pelo projeto para que ele seja executável. Com o sucesso desta operação, só nos resta invocar o Angular CLI.
+
+```
+ng serve --open
+```
+
+Uma janela do navegador padrão irá abrir com o projeto executável.
+
+Bons estudos!

@@ -1,9 +1,13 @@
 <div gdAreas="header header | side content | footer footer" gdGap="16px" gdRows="auto auto auto">
     <header gdArea="header">
-        <mat-toolbar color="primary">
-            <mat-toolbar-row>
-                <span>Olá, forasteiro</span>
-            </mat-toolbar-row>
-        </mat-toolbar>
+        <ft-header></ft-header>
     </header>
+
+    <section gdArea="side" fxLayout="wrap" fxLayoutAlign="center">
+        <ft-talk-detail></ft-talk-detail>
+    </section>
+
+    <aside gdArea="content">
+        <ft-talk-list></ft-talk-list>
+    </aside>
 </div>

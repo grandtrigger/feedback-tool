@@ -3,11 +3,13 @@
         <ft-header></ft-header>
     </header>
 
-    <section gdArea="side" fxLayout="wrap" fxLayoutAlign="center">
-        <ft-talk-detail></ft-talk-detail>
+    <section gdArea="side" fxLayoutAlign="center">
+        <div fxFlex fxFlex="50%">
+            <ft-talk-detail></ft-talk-detail>
+        </div>
     </section>
 
     <aside gdArea="content">
-        <ft-talk-list></ft-talk-list>
+        <ft-talk-list [talkList]="talkList"></ft-talk-list>
     </aside>
 </div>

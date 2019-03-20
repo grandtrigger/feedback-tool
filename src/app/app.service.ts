@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { of, throwError } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
+import { Talk } from './core/entities/talk';
 
 
 @Injectable({
@@ -16,6 +18,18 @@ export class AppService {
             .valueChanges()
             .pipe(
                 shareReplay(1)
+            );
+    }
+
+    createTalk(talk: Talk) {
+        return this.angularFirestore
+            .collection<any>('talks')
+            .add(talk)
+            .then(
+                result => { },
+                err => {
+                    throwError(err.message);
+                }
             );
     }
 }

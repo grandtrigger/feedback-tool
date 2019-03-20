@@ -1,3 +1,25 @@
-<p>
-  talk-detail works!
-</p>
+<h3>{{ action === 'create' ? 'Criação' : 'Edição' }} do Treinamento</h3>
+
+<form [formGroup]="talkForm" novalidate (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-form-field>
+        <input matInput placeholder="Tema do Treinamento" formControlName="theme" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Instrutor" formControlName="speaker" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let topic of talkTopics" [removable]="true" (removed)="removeTopic(topic)">
+                {{topic}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+
+        <input matInput placeholder="Adicione um tópico" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addTopic($event)">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">{{action === 'create' ? 'Criar' : 'Editar'}}</button>
+</form>

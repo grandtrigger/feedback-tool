@@ -12,6 +12,7 @@ import { TalkDetailComponent } from './components/talks/talk-detail/talk-detail.
 import { TalkItemComponent } from './components/talks/talk-item/talk-item.component';
 import { TalkListComponent } from './components/talks/talk-list/talk-list.component';
 import { MaterialConfigModule } from './core/modules/material-config.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,8 @@ import { MaterialConfigModule } from './core/modules/material-config.module';
         BrowserModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
 
         AngularFireModule.initializeApp(environment.firebase),
 

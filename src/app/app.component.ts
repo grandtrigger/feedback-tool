@@ -7,7 +7,7 @@ import { AppService } from './app.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    trainingList = new Array();
+    talkList = new Array();
 
     constructor(private appService: AppService) { }
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     private getTrainings() {
         this.appService.getTrainings().subscribe(
             result => {
-                this.trainingList = result;
+                this.talkList = result;
             }
         );
     }

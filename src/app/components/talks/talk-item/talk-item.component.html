@@ -1,3 +1,19 @@
-<p>
-  talk-item works!
-</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{talk.theme}}</mat-card-title>
+        <mat-card-subtitle>{{talk.dateTime.toDate() | date: 'dd/MM/yyyy hh:mm'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item *ngFor="let topic of talk.topics">{{topic}}</mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button color="primary">Editar</button>
+        <button mat-button color="accent">Excluir</button>
+    </mat-card-actions>
+</mat-card>

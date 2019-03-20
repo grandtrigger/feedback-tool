@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { of, throwError } from 'rxjs';
+import { from, throwError } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { Talk } from './core/entities/talk';
 
@@ -22,14 +22,16 @@ export class AppService {
     }
 
     createTalk(talk: Talk) {
-        return this.angularFirestore
+        return from(this.angularFirestore
             .collection<any>('talks')
             .add(talk)
             .then(
-                result => { },
+                () => {
+                    return 'Usuário cadastrado com sucesso';
+                },
                 err => {
-                    throwError(err.message);
+                    return err.message;
                 }
-            );
+            ));
     }
 }

@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatListModule } from '@angular/material/list';
         MatFormFieldModule,
         MatChipsModule,
         MatIconModule,
-        MatListModule
+        MatListModule,
+        MatSnackBarModule
     ]
 })
 export class MaterialConfigModule { }

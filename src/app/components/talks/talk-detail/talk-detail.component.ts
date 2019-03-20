@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MatChipInputEvent } from '@angular/material';
-import { Talk } from 'src/app/core/entities/talk';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { AppService } from 'src/app/app.service';
+import { Talk } from 'src/app/core/entities/talk';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class TalkDetailComponent implements OnInit {
     readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
 
-    constructor(private formBuilder: FormBuilder, private appService: AppService) { }
+    constructor(private formBuilder: FormBuilder, private appService: AppService, private snackBar: MatSnackBar) { }
 
 
     ngOnInit() {
@@ -40,8 +40,8 @@ export class TalkDetailComponent implements OnInit {
         }
     }
 
-    removeTopic(topic: string) {
-
+    removeTopic(index: number) {
+        this.talkTopics.splice(index, 1);
     }
 
     onSubmit() {
@@ -49,7 +49,12 @@ export class TalkDetailComponent implements OnInit {
 
         if (this.action === 'create') {
             const data = this.prepareData();
-            this.appService.createTalk(data);
+            this.appService.createTalk(data).subscribe(
+                result => {
+                    this.cleanUpForm();
+                    this.openSnackBar(result);
+                }
+            );
         }
     }
 
@@ -66,5 +71,16 @@ export class TalkDetailComponent implements OnInit {
             dateTime: new Date(),
             topics: this.talkTopics
         }
+    }
+
+    private openSnackBar(message: string) {
+        this.snackBar.open(message, null, {
+            duration: 5000,
+        });
+    }
+
+    private cleanUpForm() {
+        this.talkForm.reset();
+        this.talkTopics = new Array();
     }
 }

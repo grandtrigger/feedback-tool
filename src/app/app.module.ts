@@ -7,6 +7,8 @@ import { AppService } from './app.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        FlexLayoutModule,
 
         AngularFireModule.initializeApp(environment.firebase),
 
